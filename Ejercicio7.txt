@@ -1,0 +1,37 @@
+class Vehiculo {
+  void acelerar() {
+    print("Acelerar");
+  }
+}
+
+class Avion extends Vehiculo {
+  void volar() {
+    print("Volando en el cielo");
+  }
+}
+
+class Bote extends Vehiculo {
+  void navegar() {
+    print("Navegando en el mar");
+  }
+}
+
+class Auto extends Vehiculo {
+  // Solo acelera
+}
+
+void main() {
+  var avion = Avion();
+  print("Avión:");
+  avion.acelerar();
+  avion.volar();
+  
+  var bote = Bote();
+  print("\nBote:");
+  bote.acelerar();
+  bote.navegar();
+
+  var auto = Auto();
+  print("\nAuto:");
+  auto.acelerar();
+}

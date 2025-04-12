@@ -1,0 +1,52 @@
+mixin Hechizos {
+  void lanzarHechizo() {
+    print('Lanzando un hechizo');
+  }
+}
+
+mixin Atacante {
+  void atacarConArma() {
+    print('Atacando con arma');
+  }
+}
+
+mixin Curandero {
+  void curar() {
+    print('Curando');
+  }
+}
+
+class Personaje {
+  final String nombre;
+
+  Personaje(this.nombre);
+}
+
+class Mago extends Personaje with Hechizos, Curandero {
+  Mago(String nombre) : super(nombre);
+}
+
+class Guerrero extends Personaje with Atacante {
+  Guerrero(String nombre) : super(nombre);
+}
+
+class Paladin extends Personaje with Atacante, Curandero {
+  Paladin(String nombre) : super(nombre);
+}
+
+void main() {
+  final mago = Mago('Gandalf');
+  final guerrero = Guerrero('Conan');
+  final paladin = Paladin('Uther');
+
+  print('Mago:${mago.nombre}');
+  mago.lanzarHechizo();
+  mago.curar();
+
+  print('\nGuerrero:${guerrero.nombre}');
+  guerrero.atacarConArma();
+
+  print('\nPaladin:${paladin.nombre}');
+  paladin.atacarConArma();
+  paladin.curar();
+}
